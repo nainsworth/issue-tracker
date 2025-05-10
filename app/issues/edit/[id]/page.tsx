@@ -7,8 +7,9 @@ const IssueForm = dynamic(() => import("@/app/issues/_components/IssueForm"), {
   ssr: !!false,
   loading: () => <IssueFormSkeleton />,
 });
+
 interface Props {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 const EditIssuePage = async ({ params }: Props) => {

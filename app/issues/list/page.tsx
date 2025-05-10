@@ -7,8 +7,8 @@ import IssueActions from "./IssueActions";
 import IssueTable, { columnNames, IssueQuery } from "./IssueTable";
 
 interface Props {
-  searchParams: IssueQuery;
-}
+  searchParams: Promise<IssueQuery>;
+};
 
 const IssuesPage = async (props: Props) => {
   const searchParams = await props.searchParams;

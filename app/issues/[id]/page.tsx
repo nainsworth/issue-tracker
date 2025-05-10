@@ -1,6 +1,7 @@
 import authOptions from "@/app/auth/authOptions";
 import { prisma } from "@/prisma/client";
 import { Box, Flex, Grid } from "@radix-ui/themes";
+import { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { notFound } from "next/navigation";
 import { cache } from "react";
@@ -10,7 +11,7 @@ import EditIssueButton from "./EditIssueButton";
 import IssueDetails from "./IssueDetails";
 
 interface Props {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 const fetchUser = cache((issueId: number) =>
@@ -44,7 +45,7 @@ const IssueDetailPage = async ({ params }: Props) => {
   );
 };
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params;
 
   const issue = await fetchUser(parseInt(id));
