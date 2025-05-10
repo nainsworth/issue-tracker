@@ -12,7 +12,7 @@ import classNames from "classnames";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { GiAlienBug } from "react-icons/gi";
+import { IoBug } from "react-icons/io5";
 import { Skeleton } from "@/app/components";
 
 const NavBar = () => {
@@ -22,7 +22,7 @@ const NavBar = () => {
         <Flex justify="between">
           <Flex align="center" gap="3">
             <Link href="/">
-              <GiAlienBug className="size-8" />
+              <IoBug className="size-6" />
             </Link>
             <NavLinks />
           </Flex>
